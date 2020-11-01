@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Character(models.Model):
-    name  = models.CharField(max_length=100)
+    name = models.CharField(max_length=100)
     comics = models.ForeignKey('Comics', on_delete=models.CASCADE)
     events = models.ForeignKey('Event', on_delete=models.CASCADE)
     series = models.ForeignKey('Series', on_delete=models.CASCADE)
