@@ -10,7 +10,7 @@ class CharSerializer(serializers.ModelSerializer):
         fields = ['id', 'comics', 'events', 'series', 'stories']
 
 class ComicSerializer(serializers.ModelSerializer):
-    
+
     class Meta:
         model = Comics
         fields = ['id', 'comics']
