@@ -19,5 +19,6 @@ from CharactherMarvel import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/characthers', views.CharList.as_view()),
+    path('/v1/public/characters', views.CharList.as_view()),
+    url(r'^/v1/public/characters/(?P<id>[0-9]+)/$', views.ComicList.as_view())
 ]
