@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from CharactherMarvel import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/characthers', views.CharList.as_view()),
 ]
