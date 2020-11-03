@@ -16,9 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from CharactherMarvel import views
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('/v1/public/characters', views.CharList.as_view()),
-    url(r'^/v1/public/characters/(?P<id>[0-9]+)/$', views.ComicList.as_view())
+    path('/v1/public/characters/id', views.CharList.as_view()),
+    path('/v1/public/characters/id/comics', views.ComicList.as_view()),
+    path('/v1/public/characters/id/events', views.EventsList.as_view()),
+    path('/v1/public/characters/id/stories', views.StoryList.as_view()),
+    path('/v1/public/characters/id/series', views.SeriesList.as_view()),
+    url(r'^post/(?P<id>[0-9]+)/$', views.ComicList.as_view(), name = 'comics')
 ]
