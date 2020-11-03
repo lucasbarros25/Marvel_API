@@ -26,6 +26,5 @@ urlpatterns = [
     path('/v1/public/characters/id/events', views.EventsList.as_view()),
     path('/v1/public/characters/id/stories', views.StoryList.as_view()),
     path('/v1/public/characters/id/series', views.SeriesList.as_view()),
-    url(r'^v1/public/characters/(?P<id>\w{1,50})/$', views.ComicList.as_view()),
-    url(r'^/v1/public/characters/(?P<id>\w+)/$', views.ComicList.as_view()),
+    url(r'^/v1/public/characters/(?P<id>\w+)/$', views.ComicList.as_view()), # URL que pega o ID 
 ]

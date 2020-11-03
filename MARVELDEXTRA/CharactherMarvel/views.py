@@ -15,10 +15,9 @@ class ComicList(generics.ListCreateAPIView):
 	queryset = Characther.objects.filter().values('name', 'comics')
 	serializer_class = ComicSerializer
 
-def get(self, request, id):
-    id = request.GET.get('id', '')
-
-    return render(request, self, {'comics': get_object_or_404(comics, pk = id)})
+def QueryComic(request,):
+    id = Characther.objects.get(id=id)
+    comic = request.GET.get('comics')
 
 	
 class EventsList(generics.ListCreateAPIView):
