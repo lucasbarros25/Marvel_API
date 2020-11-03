@@ -26,5 +26,5 @@ urlpatterns = [
     path('/v1/public/characters/id/events', views.EventsList.as_view()),
     path('/v1/public/characters/id/stories', views.StoryList.as_view()),
     path('/v1/public/characters/id/series', views.SeriesList.as_view()),
-    url(r'^post/(?P<id>[0-9]+)/$', views.ComicList.as_view(), name = 'comics')
+    url(r'^v1/public/characters/(?P<id>\w{1,50})/$', views.ComicList.as_view()),
 ]
