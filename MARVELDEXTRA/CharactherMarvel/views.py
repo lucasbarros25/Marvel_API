@@ -20,4 +20,14 @@ class ComicList(generics.ListCreateAPIView):
 	serializer_class = ComicSerializer
 
 	
+class EventsList(generics.ListCreateAPIView):
+	queryset = Characther.objects.filter().values('name', 'events')
+	serializer_class = EventsSerializer
 
+class SeriesList(generics.ListCreateAPIView):
+	queryset = Characther.objects.filter().values('name', 'series')
+	serializer_class = SeriesSerializer
+
+class StoryList(generics.ListCreateAPIView):
+	queryset = Characther.objects.filter().values('name', 'stories')
+	serializer_class = StorySerializer
