@@ -15,20 +15,32 @@ class IDCharList(generics.ListCreateAPIView):
 	
 	def get_queryset(self):
 		id = self.kwargs['id']
-		return Characther.objects.filter(charachter__id=id)
+		return Characther.objects.filter(id=id)
 
 class ComicList(generics.ListCreateAPIView):
-	queryset = Characther.objects.filter().values('name','comics')
 	serializer_class = ComicSerializer
 
+	def get_queryset(self):
+		id = self.kwargs['id']
+		return Characther.objects.filter(id=id).values('name','comics')
+
 class EventsList(generics.ListCreateAPIView):
-	queryset = Characther.objects.filter().values('name','events')
 	serializer_class = EventsSerializer
 
+	def get_queryset(self):
+		id = self.kwargs['id']
+		return Characther.objects.filter(id=id).values('name', 'events')
+
 class SeriesList(generics.ListCreateAPIView):
-	queryset = Characther.objects.filter().values('name', 'series')
 	serializer_class = SeriesSerializer
 
+	def get_queryset(self):
+		id = self.kwargs['id']
+		return Characther.objects.filter(id=id).values('name', 'series')
+
 class StoryList(generics.ListCreateAPIView):
-	queryset = Characther.objects.filter().values('name', 'stories')
 	serializer_class = StorySerializer
+
+	def get_queryset(self):
+		id = self.kwargs['id']
+		return Characther.objects.filter(id=id).values('name', 'stories')

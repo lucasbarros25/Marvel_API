@@ -22,9 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('v1/public/characters', views.CharList.as_view()),
     re_path('^v1/public/characters/(?P<id>.+)/$', views.IDCharList.as_view()),
-    path('v1/public/characters/id/comics', views.ComicList.as_view()),
-    path('v1/public/characters/id/events', views.EventsList.as_view()),
-    path('v1/public/characters/id/stories', views.StoryList.as_view()),
-    path('v1/public/characters/id/series', views.SeriesList.as_view()),
+    re_path('^v1/public/characters/(?P<id>.+)/comics', views.ComicList.as_view()),
+    re_path('^v1/public/characters/(?P<id>.+)/events', views.EventsList.as_view()),
+    re_path('^v1/public/characters/(?P<id>.+)/stories', views.StoryList.as_view()),
+    re_path('^v1/public/characters/(?P<id>.+)/series', views.SeriesList.as_view()),
 
 ]
