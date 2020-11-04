@@ -12,16 +12,12 @@ class CharList(generics.ListCreateAPIView):
 
 
 class ComicList(generics.ListCreateAPIView):
-	queryset = Characther.objects.filter().values('name', 'comics')
+	queryset = Characther.objects.filter().values('name','comics')
 	serializer_class = ComicSerializer
-
-def QueryComic(request,):
-    id = Characther.objects.get(id=id)
-    comic = request.GET.get('comics')
-
 	
+
 class EventsList(generics.ListCreateAPIView):
-	queryset = Characther.objects.filter().values('name', 'events')
+	queryset = Characther.objects.filter().values('name','events')
 	serializer_class = EventsSerializer
 
 class SeriesList(generics.ListCreateAPIView):
