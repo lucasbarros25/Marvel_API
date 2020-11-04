@@ -14,17 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,re_path
 from CharactherMarvel import views
 from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/v1/public/characters', views.CharList.as_view()),
-    path('/v1/public/characters/id', views.CharList.as_view()),
-    path('/v1/public/characters/id/comics', views.ComicList.as_view()),
-    path('/v1/public/characters/id/events', views.EventsList.as_view()),
-    path('/v1/public/characters/id/stories', views.StoryList.as_view()),
-    path('/v1/public/characters/id/series', views.SeriesList.as_view()),
-    url(r'^/v1/public/characters/(?P<id>\w+)/$', views.ComicList.as_view()), # URL que pega o ID 
+    path('v1/public/characters', views.CharList.as_view()),
+    re_path('^v1/public/characters/(?P<id>.+)/$', views.IDCharList.as_view()),
+    path('v1/public/characters/id/comics', views.ComicList.as_view()),
+    path('v1/public/characters/id/events', views.EventsList.as_view()),
+    path('v1/public/characters/id/stories', views.StoryList.as_view()),
+    path('v1/public/characters/id/series', views.SeriesList.as_view()),
+
 ]
